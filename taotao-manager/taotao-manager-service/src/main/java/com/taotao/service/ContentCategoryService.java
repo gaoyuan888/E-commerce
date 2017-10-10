@@ -8,4 +8,5 @@ import com.taotao.common.pojo.TaotaoResult;
 public interface ContentCategoryService {
 	List<EUTreeNode> getCatgoryList(long parentId); 
 	public TaotaoResult insertContentCategory(long parentId,String name);
+	
 }
