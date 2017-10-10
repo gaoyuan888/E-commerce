@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<junit.version>4.10</junit.version>
-		<spring.version>4.3.6.RELEASE</spring.version>
+		<spring.version>4.1.3.RELEASE</spring.version>
 		<mybatis.version>3.2.8</mybatis.version>
 		<mybatis.spring.version>1.2.2</mybatis.spring.version>
 		<mybatis.paginator.version>1.2.15</mybatis.paginator.version>
@@ -26,7 +26,7 @@
 		<pagehelper.version>4.0.1</pagehelper.version>
 		<jsqlparser.version>0.9.1</jsqlparser.version>
 		<commons-fileupload.version>1.3.1</commons-fileupload.version>
-		<jedis.version>2.8.1</jedis.version>
+		<jedis.version>2.7.2</jedis.version>
 		<solrj.version>4.10.3</solrj.version>
 	</properties>
 	<dependencyManagement>

@@ -29,8 +29,7 @@ public class ContentController {
 			e.printStackTrace();
 			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
 		}
+		
 	}
-	
-	
 	
 }
