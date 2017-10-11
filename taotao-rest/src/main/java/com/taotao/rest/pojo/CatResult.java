@@ -3,6 +3,7 @@ package com.taotao.rest.pojo;
 import java.util.List;
 
 public class CatResult {
+
 	private List<?> data;
 
 	public List<?> getData() {
@@ -12,5 +13,6 @@ public class CatResult {
 	public void setData(List<?> data) {
 		this.data = data;
 	}
+	
 	
 }

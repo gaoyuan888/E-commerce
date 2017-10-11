@@ -13,15 +13,25 @@ import com.taotao.common.utils.ExceptionUtil;
 import com.taotao.pojo.TbContent;
 import com.taotao.rest.service.ContentService;
 
+/**
+ * 内容管理Controller
+ * <p>Title: ContentController</p>
+ * <p>Description: </p>
+ * <p>Company: www.itcast.com</p> 
+ * @author	入云龙
+ * @date	2015年9月8日下午3:09:16
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/content")
 public class ContentController {
+
 	@Autowired
 	private ContentService contentService;
 	
 	@RequestMapping("/list/{contentCategoryId}")
 	@ResponseBody
-	public TaotaoResult getContentList(@PathVariable Long contentCategoryId){
+	public TaotaoResult getContentList(@PathVariable Long contentCategoryId) {
 		try {
 			List<TbContent> list = contentService.getContentList(contentCategoryId);
 			return TaotaoResult.ok(list);
@@ -29,7 +39,5 @@ public class ContentController {
 			e.printStackTrace();
 			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
 		}
-		
 	}
-	
 }
