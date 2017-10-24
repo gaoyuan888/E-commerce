@@ -21,7 +21,7 @@ import com.taotao.rest.service.ContentService;
  * @author	入云龙
  * @date	2015年9月8日下午3:09:16
  * @version 1.0
- */ 
+ */  
 @Controller
 @RequestMapping("/content")
 public class ContentController {
