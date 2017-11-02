@@ -15,7 +15,7 @@ public class SolrJTest {
 		document.addField("item_price", 12345);
 		solrServer.add(document);
 	}
-	
+	 
 	@Test
 	public void deleteById() throws Exception{
 		SolrServer solrServer = new HttpSolrServer("http://192.168.226.136:8080/solr");
