@@ -32,6 +32,7 @@ public class ItemServiceImpl implements ItemService {
 				document.setField("item_title", item.getTitle());
 				document.setField("item_sell_point", item.getSell_point());
 				document.setField("item_price", item.getPrice());
+				document.setField("item_image", item.getImage());
 				document.setField("item_category_name", item.getCategory_name());
 				document.setField("item_desc", item.getItem_des());
 				solrServer.add(document);
