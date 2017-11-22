@@ -43,7 +43,6 @@ public class SearchServiceImpl implements SearchService {
 				SearchResult result = (SearchResult) taotaoResult.getData();
 				return result;
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
