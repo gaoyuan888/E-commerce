@@ -12,18 +12,11 @@ import com.taotao.common.utils.HttpClientUtil;
 import com.taotao.common.utils.JsonUtils;
 import com.taotao.pojo.TbItemDesc;
 import com.taotao.pojo.TbItemParamItem;
-import com.taotao.portal.pojo.Item;
 import com.taotao.portal.pojo.ItemInfo;
 import com.taotao.portal.service.ItemService;
 
 /**
  * 商品信息管理Service
- * <p>Title: ItemServiceImpl</p>
- * <p>Description: </p>
- * <p>Company: www.itcast.com</p> 
- * @author	入云龙
- * @date	2015年9月12日下午2:41:57
- * @version 1.0
  */
 @Service
 public class ItemServiceImpl implements ItemService {
