@@ -3,7 +3,6 @@ package com.taotao.rest.service.impl;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.http.message.BasicNameValuePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
