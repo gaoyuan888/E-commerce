@@ -2,9 +2,8 @@ package com.taotao.sso.service.impl;
 
 import java.util.List;
 
-import javax.sound.sampled.LineListener;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.mapper.TbUserMapper;
@@ -13,6 +12,7 @@ import com.taotao.pojo.TbUserExample;
 import com.taotao.pojo.TbUserExample.Criteria;
 import com.taotao.sso.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService{
 
 	@Autowired
