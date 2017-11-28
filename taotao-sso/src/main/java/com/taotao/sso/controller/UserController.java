@@ -12,13 +12,14 @@ import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.common.utils.ExceptionUtil;
 import com.taotao.sso.service.UserService;
 
-@Controller("/user")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/check/{param}/{type}")
+	@RequestMapping("/check/{param}/{type}")
 	@ResponseBody
 	public Object checkData(@PathVariable String param, @PathVariable Integer type, String callback) {
 
