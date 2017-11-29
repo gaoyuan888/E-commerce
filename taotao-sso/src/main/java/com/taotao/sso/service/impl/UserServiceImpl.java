@@ -98,5 +98,7 @@ public class UserServiceImpl implements UserService{
 		jedisClient.expire(REDIS_USER_SESSION_KEY+":"+token, SSO_SESSION_EXPIRE);
 		return TaotaoResult.ok(JsonUtils.jsonToPojo(json, TbUser.class));
 	}
+	
+	
 
 }
