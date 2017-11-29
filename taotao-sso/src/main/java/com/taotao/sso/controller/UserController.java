@@ -1,6 +1,7 @@
 package com.taotao.sso.controller;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
@@ -82,6 +83,25 @@ public class UserController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
+	
+	@RequestMapping("/token/{token}")
+	@ResponseBody
+	public Object getUserByToken(@PathVariable String token,String callback){
+		TaotaoResult result = null;
+		try{
+			result = userService.getUserByToken(token);
+		}catch (Exception e){
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtils.getStackTrace(e));
+		}
+		if(StringUtils.isBlank(callback)){
+			return result;
+		}else{
+			MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(result);
+			mappingJacksonValue.setJsonpFunction(callback);
+			return mappingJacksonValue;
 		}
 	}
 	

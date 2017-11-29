@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -66,7 +67,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public TaotaoResult userLogin(String username, String password) {
-		
 		TbUserExample example=new TbUserExample();
 		Criteria criteria = example.createCriteria();
 		criteria.andUsernameEqualTo(username);
@@ -75,20 +75,28 @@ public class UserServiceImpl implements UserService{
 			return TaotaoResult.build(400, "用户名或密码错误");
 		}
 		TbUser user=list.get(0);
-		
 		if(!DigestUtils.md5DigestAsHex(password.getBytes()).equals(user.getPassword())){
 			return TaotaoResult.build(400, "用户名或密码错误");
 		}
 		String token = UUID.randomUUID().toString();
-		
 		user.setPassword(null);
 		//把用户信息写入redis
 		jedisClient.set(REDIS_USER_SESSION_KEY+":"+token,JsonUtils.objectToJson(user));
 		//设置过期时间
 		jedisClient.expire(REDIS_USER_SESSION_KEY+":"+token, SSO_SESSION_EXPIRE);
-		
 		//返回token
 		return TaotaoResult.ok(token);
+	}
+
+	@Override
+	public TaotaoResult getUserByToken(String token) {
+		//根据token从redis中查询用户信息
+		String json = jedisClient.get(REDIS_USER_SESSION_KEY+":"+token);
+		if(StringUtils.isBlank(json)){
+			return TaotaoResult.build(400, "session过期，请重新登录");
+		}
+		jedisClient.expire(REDIS_USER_SESSION_KEY+":"+token, SSO_SESSION_EXPIRE);
+		return TaotaoResult.ok(JsonUtils.jsonToPojo(json, TbUser.class));
 	}
 
 }
