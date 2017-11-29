@@ -6,6 +6,7 @@ import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.taotao.common.pojo.TaotaoResult;
@@ -60,10 +61,9 @@ public class UserController {
 	}
 	
 	//创建用户
-	@RequestMapping("/register")
+	@RequestMapping(value="/register",method=RequestMethod.POST)
 	@ResponseBody
 	public TaotaoResult createUser(TbUser user){
-		
 		try {
 			TaotaoResult result = userService.creatUser(user);
 			return result;
@@ -72,5 +72,17 @@ public class UserController {
 		}
 	}
 	
+	//用户登录
+	@RequestMapping("/login")
+	@ResponseBody
+	public TaotaoResult userLogin(String username,String password){
+		try {
+			TaotaoResult result = userService.userLogin(username, password);
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return TaotaoResult.build(500, ExceptionUtil.getStackTrace(e));
+		}
+	}
 	
 }
