@@ -44,6 +44,12 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- JSP相关 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 		<!-- 日志处理 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

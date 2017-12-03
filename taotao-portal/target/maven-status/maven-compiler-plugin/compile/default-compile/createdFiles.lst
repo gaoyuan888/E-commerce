@@ -1,5 +1,6 @@
 com\taotao\portal\service\impl\OrderServiceImpl.class
 com\taotao\portal\pojo\SearchResult.class
+com\taotao\portal\interceptor\LoginInterceptor.class
 com\taotao\portal\controller\ItemController.class
 com\taotao\portal\service\impl\ContentServiceImpl.class
 com\taotao\portal\service\impl\ItemServiceImpl.class
