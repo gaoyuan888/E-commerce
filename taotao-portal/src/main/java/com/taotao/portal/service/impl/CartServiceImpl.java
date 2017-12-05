@@ -37,12 +37,6 @@ public class CartServiceImpl implements CartService{
 
 	/**
 	 * 添加购物车商品
-	 * <p>Title: addCartItem</p>
-	 * <p>Description: </p>
-	 * @param itemId
-	 * @param num
-	 * @return
-	 * @see com.taotao.portal.service.CartService#addCartItem(long, int)
 	 */
 	public TaotaoResult addCartItem(long itemId, int num, 
 			HttpServletRequest request, HttpServletResponse response) {
