@@ -72,7 +72,7 @@ public class OrderServiceImpl implements OrderService {
 		orderShipping.setCreated(date);
 		orderShipping.setUpdated(date);
 		orderShppingMapper.insert(orderShipping);
-		return TaotaoResult.ok();
+		return TaotaoResult.ok(orderId);
 	}
 
 
