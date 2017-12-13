@@ -63,8 +63,9 @@ public class OrderServiceImpl implements OrderService {
 		//插入订单明细
 		for (TbOrderItem tbOrderItem : itemList) {
 			//补全订单明细
-			long orderDetilId = jedisClient.incr(ORDER_DETAIL_GEN_KEY);
-			tbOrderItem.setId(orderDetilId+"");
+			long orderDetailId = jedisClient.incr(ORDER_DETAIL_GEN_KEY);
+			tbOrderItem.setId(orderDetailId + "");
+			tbOrderItem.setOrderId(orderId + ""); 
 			orderItemMapper.insert(tbOrderItem);
 		}
 		//插入物流表
