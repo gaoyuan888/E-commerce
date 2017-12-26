@@ -30,6 +30,5 @@ public class PictureController {
 		Map resultMap = pictureService.uploadPicture(uploadFile);
 		String jsonRs = JsonUtils.objectToJson(resultMap);
 		return jsonRs;
-
 	}
 }

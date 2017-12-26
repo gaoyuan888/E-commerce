@@ -62,16 +62,16 @@
 			<version>2.4.2</version>
 		</dependency>
 		<!-- solr客户端 -->
-		<dependency>
-			<groupId>org.apache.solr</groupId>
-			<artifactId>solr-solrj</artifactId>
-			<!-- <version>4.10.3</version> -->
-		</dependency>
-		<dependency>
-			<groupId>org.noggit</groupId>
-			<artifactId>noggit</artifactId>
-			<version>0.8</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.solr</groupId> -->
+<!-- 			<artifactId>solr-solrj</artifactId> -->
+<!-- 			<version>4.10.3</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.noggit</groupId> -->
+<!-- 			<artifactId>noggit</artifactId> -->
+<!-- 			<version>0.8</version> -->
+<!-- 		</dependency> -->
 	</dependencies>
 	<build>
 		<plugins>
@@ -81,6 +81,9 @@
 				<configuration>
 					<port>8081</port>
 					<path>/</path>
+					<url>http://192.168.80.135:8080/manager/text</url>
+					<username>tomcat</username>
+					<password>tomcat</password>
 				</configuration>
 			</plugin>
 		</plugins>
