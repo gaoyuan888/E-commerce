@@ -1,5 +1,7 @@
 package com.taotao.portal.service.impl;
 
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +30,11 @@ public class OrderServiceImpl implements OrderService {
 		//从cookie中后取TT_TOKEN的内容，根据token调用sso系统的服务根据token换取用户信息。
 		
 		//调用taotao-order的服务提交订单。
-		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JsonUtils.objectToJson(order));
+		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JSONObject.fromObject(order).toString());
+//		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JSONObject);
+		System.out.println("=json===:"+json);
+		System.out.println("==路径===:"+ORDER_BASE_URL + ORDER_CREATE_URL);
+		System.out.println("==order串===:"+JsonUtils.objectToJson(order));
 		//把json转换成taotaoResult
 		TaotaoResult taotaoResult = TaotaoResult.format(json);
 		if (taotaoResult.getStatus() == 200) {
