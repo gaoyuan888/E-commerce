@@ -30,8 +30,7 @@ public class OrderServiceImpl implements OrderService {
 		//从cookie中后取TT_TOKEN的内容，根据token调用sso系统的服务根据token换取用户信息。
 		
 		//调用taotao-order的服务提交订单。
-		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JSONObject.fromObject(order).toString());
-//		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JSONObject);
+		String json = HttpClientUtil.doPostJson(ORDER_BASE_URL + ORDER_CREATE_URL, JsonUtils.objectToJson(order));
 		System.out.println("=json===:"+json);
 		System.out.println("==路径===:"+ORDER_BASE_URL + ORDER_CREATE_URL);
 		System.out.println("==order串===:"+JsonUtils.objectToJson(order));
